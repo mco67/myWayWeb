@@ -1,0 +1,15 @@
+<md-sidenav-layout class="myWay" fullscreen>
+  <md-sidenav #start>
+    <md-nav-list>
+
+    </md-nav-list>
+  </md-sidenav>
+  <div>
+    <md-toolbar color="primary">
+      {{title}}
+      <span class="nav-fill-remaining"></span>
+      <button md-button>LogIn</button>
+    </md-toolbar>
+    <router-outlet></router-outlet>
+  </div>
+</md-sidenav-layout>
