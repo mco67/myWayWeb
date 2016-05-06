@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Route, Routes, ROUTER_DIRECTIVES } from '@angular/router';
+import { Route, Routes, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router';
 import { LoginPageComponent } from './login-page/login-page.component';
 
 @Component({
