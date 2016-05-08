@@ -1,1 +1,17 @@
+<div class="loginPage">
+  <div class="title">MyWay</div>
+  <div class="card md-whiteframe-6dp">
+    <form class="loginForm" (ngSubmit)="authenticate()" [ngFormModel]="userForm">
 
+      <md-input placeholder="Login" class="inputField" ngControl="username"></md-input>
+      <div class="errorMessage" *ngIf="username.dirty && username.hasError('required')">Username is required</div>
+      <div class="errorMessage" *ngIf="usernameErrorMessage">{{usernameErrorMessage}}</div>
+      
+      <md-input placeholder="Password" type="password" class="inputField" ngControl="password"></md-input>
+      <div class="errorMessage" *ngIf="password.dirty && password.hasError('required')">Password is required</div>
+      <div class="errorMessage" *ngIf="passwordErrorMessage">{{passwordErrorMessage}}</div>
+      
+      <button md-raised-button class="md-primary loginButton" type="submit" [disabled]="!userForm.valid">Login</button>
+    </form>
+  </div>
+</div>

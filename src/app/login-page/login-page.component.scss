@@ -1,0 +1,42 @@
+.loginPage {
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	margin:50px auto 0 auto;
+	
+	.title {
+		margin-bottom:20px;
+		font-size:40px;
+	}
+	
+	.card {
+		width:380px;
+		min-height: 100px;
+		box-shadow: 0 1px 10px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+		border-radius:2px;
+		padding:10px;
+		
+		.loginForm {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			
+			.inputField {
+				width: 100%;
+			 	margin:10px 0 0 0;
+			}
+		
+			.errorMessage {
+				font-size: 13px;
+				color: red;
+			}
+			
+			.loginButton {
+				margin-top:25px;
+			}
+		}
+	   
+		
+	}
+
+}

@@ -6,8 +6,10 @@ const map: any = {
   '@angular2-material/sidenav' : 'vendor/@angular2-material/sidenav/sidenav.js',
   '@angular2-material/toolbar' : 'vendor/@angular2-material/toolbar/toolbar.js',
   '@angular2-material/button' : 'vendor/@angular2-material/button/button.js',
+  '@angular2-material/input' : 'vendor/@angular2-material/input/input.js',
   '@angular2-material/core/rtl' : 'vendor/@angular2-material/core/rtl/dir.js',
   '@angular2-material/core/rtl/dir' : 'vendor/@angular2-material/core/rtl/dir.js',
+  '@angular2-material/core/annotations/field-value' : 'vendor/@angular2-material/core/annotations/field-value.js',
   '@angular2-material/core/async' : 'vendor/@angular2-material/core/async/promise-completer.js',
   '@angular2-material/core/async/promise-completer' : 'vendor/@angular2-material/core/async/promise-completer.js'
 };
@@ -38,6 +40,7 @@ const barrels: string[] = [
   'app',
   'app/shared',
   'app/login-page',
+  'app/home-page',
   /** @cli-barrel */
 ];
 

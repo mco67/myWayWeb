@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Route, Routes, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @Component({
   moduleId: module.id,
@@ -12,7 +13,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 
 
 @Routes([
-    new Route({path: '/', component: LoginPageComponent}),
+    new Route({path: '/', component: HomePageComponent}),
     new Route({path: '/login', component: LoginPageComponent})
   ])
 
