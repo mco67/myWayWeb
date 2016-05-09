@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MdInput } from '@angular2-material/input';
 import { FormBuilder, Control, ControlGroup, Validators, Validator } from '@angular/common';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/authService';
 
 @Component({
@@ -8,11 +9,10 @@ import { AuthService } from '../services/authService';
 	selector: 'app-login-page',
 	templateUrl: 'login-page.component.html',
 	styleUrls: ['login-page.component.css'],
-	directives: [MdInput],
 	providers: [AuthService]
 })
 
-export class LoginPageComponent implements OnInit {
+export class LoginPageComponent {
 
 	private userForm: ControlGroup;
 	private username: Control;
@@ -20,25 +20,28 @@ export class LoginPageComponent implements OnInit {
 	private usernameErrorMessage: string;
 	private passwordErrorMessage: string;
 
-	constructor(private fb: FormBuilder, private authService: AuthService) {
+	constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
 
-		// Create the form controls
+		// Create the username form control
 		this.username = fb.control('', Validators.compose([Validators.required, Validators.minLength(3)]));
 		this.username.valueChanges.subscribe((newValue) => { this.usernameErrorMessage = ''; });
 
+		// Create the password form control
 		this.password = fb.control('', Validators.compose([Validators.required]));
 		this.password.valueChanges.subscribe((newValue) => { this.passwordErrorMessage = ''; });
 
-		this.userForm = fb.group({
-			username: this.username,
-			password: this.password
-		});      
+		// Create the group
+		this.userForm = fb.group({ username: this.username, password: this.password });      
 	}
 
 	public authenticate(): void {
 		this.authService.authenticate(this.username.value, this.password.value)
 			.subscribe(
-				(data) => console.log("adta " + data),
+				(data) => {
+					let token = data.token;
+					localStorage.setItem("token", data.token);
+					 this.router.navigate(['/']);
+				},
 				(err) => {
 					let message = err.json().message;
 					if (message === "wrongUser") { this.usernameErrorMessage = "Unknow user"; }
@@ -46,11 +49,5 @@ export class LoginPageComponent implements OnInit {
 				}
             );
 	}
-	
-	
-
-	ngOnInit() {
-	}
-
 }
 

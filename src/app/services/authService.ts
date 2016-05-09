@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
+import { ConfigService } from '../services/configService';
+
 import 'rxjs/operator/map';
 
 @Injectable()
 export class AuthService {
 
-    private baseUrl: string;
-
-    constructor(public http: Http) {
-        this.baseUrl = 'http://localhost:8080';
+    constructor(private http: Http, private configService: ConfigService) {
     }
 
     public authenticate(username: string, password: string): Observable<any> {
@@ -21,7 +20,7 @@ export class AuthService {
         headers.append('Accept', 'application/json');
 
         // Call api
-        return this.http.get(`${this.baseUrl}/api/v1.0/authenticate`, { headers: headers })
+        return this.http.get(`${this.configService.baseURL}/api/v1.0/authenticate`, { headers: headers })
             .map(res => res.json());
     }
 

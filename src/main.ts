@@ -5,6 +5,10 @@ import { HTTP_PROVIDERS } from '@angular/http';
 import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav';
 import { MdToolbar } from '@angular2-material/toolbar';
 import { MdButton } from '@angular2-material/button';
+import { MdInput } from '@angular2-material/input';
+
+import { ConfigService } from './app/services/configService';
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
@@ -15,11 +19,15 @@ if (environment.production) {
 }
 
 bootstrap(MyWayAppComponent, [
-   ROUTER_PROVIDERS,
-   HTTP_PROVIDERS,
-   Renderer,
-   provide(PLATFORM_DIRECTIVES, { useValue: ROUTER_DIRECTIVES, multi: true }),
-   provide(PLATFORM_DIRECTIVES, { useValue: MD_SIDENAV_DIRECTIVES, multi: true }),
-   provide(PLATFORM_DIRECTIVES, { useValue: MdToolbar, multi: true }),
-   provide(PLATFORM_DIRECTIVES, { useValue: MdButton, multi: true }) 
+  ROUTER_PROVIDERS,
+  HTTP_PROVIDERS,
+  Renderer,
+  provide(PLATFORM_DIRECTIVES, { useValue: ROUTER_DIRECTIVES, multi: true }),
+  provide(PLATFORM_DIRECTIVES, { useValue: MD_SIDENAV_DIRECTIVES, multi: true }),
+  provide(PLATFORM_DIRECTIVES, { useValue: MdToolbar, multi: true }),
+  provide(PLATFORM_DIRECTIVES, { useValue: MdButton, multi: true }),
+  provide(PLATFORM_DIRECTIVES, { useValue: MdInput, multi: true }),
+  
+  ConfigService
+
 ]);
