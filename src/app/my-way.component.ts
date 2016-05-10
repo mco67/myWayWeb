@@ -1,29 +1,40 @@
 import { Component } from '@angular/core';
-import { Route, Routes, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router';
+import { Route, Routes, Router, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { ConfigService } from './services/configService';
+import { UserService } from './services/userService';
+
 
 @Component({
-  moduleId: module.id,
-  selector: 'my-way-app',
-  templateUrl: 'my-way.component.html',
-  styleUrls: ['my-way.component.css'],
-  directives: [ROUTER_DIRECTIVES],
+	moduleId: module.id,
+	selector: 'my-way-app',
+	templateUrl: 'my-way.component.html',
+	styleUrls: ['my-way.component.css'],
+	directives: [ROUTER_DIRECTIVES],
 })
 
 
 @Routes([
-    new Route({path: '/', component: HomePageComponent}),
-    new Route({path: '/login', component: LoginPageComponent})
-  ])
+	new Route({ path: '/', component: HomePageComponent }),
+	new Route({ path: '/login', component: LoginPageComponent })
+])
 
 export class MyWayAppComponent {
-  
-  title : string;
-  
-  constructor(configService : ConfigService) {
-   this.title = 'my-way works! '+configService.baseURL;
-  }
-  
+
+	public title: string;
+
+	constructor(private userService: UserService, private router:Router) {
+		this.title = 'My Way';
+		userService.getOwnUser()
+			.subscribe(
+			(data) => {
+				console.log("ok "+data);
+			},
+			(err) => {
+				console.log("error "+JSON.stringify(err));
+				this.router.navigate(['/login']);
+			}
+		);
+	}
+
 }

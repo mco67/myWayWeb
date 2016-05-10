@@ -8,6 +8,8 @@ import { MdButton } from '@angular2-material/button';
 import { MdInput } from '@angular2-material/input';
 
 import { ConfigService } from './app/services/configService';
+import { AuthService } from './app/services/authService';
+import { UserService } from './app/services/userService';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -28,6 +30,8 @@ bootstrap(MyWayAppComponent, [
   provide(PLATFORM_DIRECTIVES, { useValue: MdButton, multi: true }),
   provide(PLATFORM_DIRECTIVES, { useValue: MdInput, multi: true }),
   
-  ConfigService
+  ConfigService,
+  AuthService,
+  UserService
 
 ]);
