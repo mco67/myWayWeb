@@ -11,12 +11,12 @@ const map: any = {
   '@angular2-material/core/rtl/dir' : 'vendor/@angular2-material/core/rtl/dir.js',
   '@angular2-material/core/annotations/field-value' : 'vendor/@angular2-material/core/annotations/field-value.js',
   '@angular2-material/core/async' : 'vendor/@angular2-material/core/async/promise-completer.js',
-  '@angular2-material/core/async/promise-completer' : 'vendor/@angular2-material/core/async/promise-completer.js'
+  '@angular2-material/core/async/promise-completer' : 'vendor/@angular2-material/core/async/promise-completer.js',
 };
 
 /** User packages configuration. */
 const packages: any = {
-  '@angular2-material': { format: 'cjs', defaultExtension: 'js' }
+  '@angular2-material': { format: 'cjs', defaultExtension: 'js' },
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -41,6 +41,7 @@ const barrels: string[] = [
   'app/shared',
   'app/login-page',
   'app/home-page',
+  'app/top-area',
   /** @cli-barrel */
 ];
 

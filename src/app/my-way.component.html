@@ -5,11 +5,7 @@
     </md-nav-list>
   </md-sidenav>
   <div>
-    <md-toolbar color="primary">
-      {{title}}
-      <span class="nav-fill-remaining"></span>
-      <a md-button [routerLink]="['/login']">LogIn</a>
-    </md-toolbar>
+   <app-top-area></app-top-area>
     <router-outlet></router-outlet>
   </div>
 </md-sidenav-layout>

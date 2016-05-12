@@ -3,7 +3,6 @@ import { Http, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { ConfigService } from '../services/configService';
 import { AuthService } from '../services/authService'; 
- 
 import { User } from '../models/user';
 
 import 'rxjs/operator/map';
@@ -11,12 +10,27 @@ import 'rxjs/operator/map';
 @Injectable()
 export class UserService {
 
+    public user: User;
+
     constructor(
         private configService: ConfigService, 
         private authService: AuthService, 
-        private http: Http) {}
+        private http: Http) {
+        
+        this.getUser().subscribe(
+			(data) => {
+				console.log("ok "+data);
+								
+			},
+			(err) => {
+				console.log("error "+JSON.stringify(err));
+				this.router.navigate(['/login']);
+			}
+		);   
+                   
+    }
     
-    public getOwnUser(): Observable<any> {
+    private getUser(): Observable<any> {
         console.log(`[USER_SERVICE] getOwnUser`);  
         
         // Fill headers for basic Authentication         

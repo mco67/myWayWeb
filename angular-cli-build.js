@@ -13,7 +13,7 @@ module.exports = function(defaults) {
       'rxjs/**/*.js',
       '@angular/**/*.js',
       '@angular2-material/**/*.js',
-      '@angular2-material/**/*.css'
+      '@angular2-material/**/*.css',
     ]
   });
 };

@@ -10,6 +10,7 @@ import { MdInput } from '@angular2-material/input';
 import { ConfigService } from './app/services/configService';
 import { AuthService } from './app/services/authService';
 import { UserService } from './app/services/userService';
+import { UploadService } from './app/services/uploadService';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -32,6 +33,7 @@ bootstrap(MyWayAppComponent, [
   
   ConfigService,
   AuthService,
-  UserService
+  UserService,
+  UploadService
 
 ]);

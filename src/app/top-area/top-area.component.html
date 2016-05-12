@@ -1,0 +1,6 @@
+<md-toolbar color="primary">
+	My Way
+	<span class="nav-fill-remaining"></span>
+	<div *ngIf="user"> {{numberOfUsers}}</div>
+	<a md-button [routerLink]="['/login']">LogIn</a>
+</md-toolbar>
