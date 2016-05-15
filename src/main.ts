@@ -8,7 +8,6 @@ import { MdButton } from '@angular2-material/button';
 import { MdInput } from '@angular2-material/input';
 
 import { ConfigService } from './app/services/configService';
-import { AuthService } from './app/services/authService';
 import { UserService } from './app/services/userService';
 import { UploadService } from './app/services/uploadService';
 
@@ -32,7 +31,6 @@ bootstrap(MyWayAppComponent, [
   provide(PLATFORM_DIRECTIVES, { useValue: MdInput, multi: true }),
   
   ConfigService,
-  AuthService,
   UserService,
   UploadService
 

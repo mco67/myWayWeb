@@ -15,8 +15,4 @@ describe('App: MyWay', () => {
     expect(app).toBeTruthy();
   }));
 
-  it('should have as title \'my-way works!\'',
-      inject([MyWayAppComponent], (app: MyWayAppComponent) => {
-    expect(app.title).toEqual('my-way works!');
-  }));
 });

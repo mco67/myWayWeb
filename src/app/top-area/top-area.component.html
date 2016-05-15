@@ -1,6 +1,7 @@
 <md-toolbar color="primary">
 	My Way
 	<span class="nav-fill-remaining"></span>
-	<div *ngIf="user"> {{numberOfUsers}}</div>
-	<a md-button [routerLink]="['/login']">LogIn</a>
+	<div *ngIf="user"> {{user.login}}</div>
+	<a *ngIf="!user" md-button [routerLink]="['/login']">LogIn</a>
+	<a *ngIf="user"md-button (click)="onLogout()">LogOut</a>
 </md-toolbar>

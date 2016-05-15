@@ -11,10 +11,13 @@ import { User } from '../models/User';
 
 export class TopAreaComponent {
 
-  private user : User;
-  
+  private user: User;
+
   constructor(private userService: UserService) {
-    this.user = userService.user;
+    this.userService.user.subscribe(user => this.user = user); 
   }
 
+  public onLogout() {
+    this.userService.logout();
+  }
 }

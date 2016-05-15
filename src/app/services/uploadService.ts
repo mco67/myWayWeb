@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { AuthService } from '../services/authService'; 
+import { UserService } from '../services/userService'; 
 
 
 export class UploadedFile {
@@ -75,8 +75,8 @@ export class UploadService {
   _queue: any[] = [];
   _emitter: EventEmitter<any> = new EventEmitter(true);
 
-  constructor(private authService: AuthService) {
-      this.authToken = this.authService.getAuthToken();
+  constructor(private userService: UserService) {
+      this.authToken = this.userService.token;
   }
 
   setOptions(options: any): void {
