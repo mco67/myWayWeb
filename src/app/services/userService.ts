@@ -18,16 +18,16 @@ export class UserService {
     constructor(
         private configService: ConfigService,
         private http: Http) {
-        this.getUserData();
+        this.initialize();
     }
 
-    private getUserData(): void {
-        console.log(`[USER_SERVICE] getUserData`);
+    private initialize(): void {
+        console.log(`[USER_SERVICE] initialize`);
 
         // Case 1 : No authentication token
         this.token = localStorage.getItem('token');
         if (!this.token) {
-            let errorMessage = 'getUserData : Authentication token not found';
+            let errorMessage = 'initialize : Authentication token not found';
             console.warn(`[USER_SERVICE] ${errorMessage}`);
         }
 
@@ -46,7 +46,7 @@ export class UserService {
                     this._user.next(user);
                 },
                 err => {
-                    console.warn(`[USER_SERVICE] getUserData failure : ${err}`);
+                    console.warn(`[USER_SERVICE] initialize failure : ${err}`);
                 });
         }
     }

@@ -1,0 +1,16 @@
+.nav-fill-remaining {
+    flex: 1 1 auto;
+}
+
+#avatar { 
+    height:40px;
+    width:40px;
+    margin-top: -3px;
+    
+    img {
+        height:40px;
+        width:40px;
+        border: solid 2px white;
+        border-radius:50%; 
+    }
+}

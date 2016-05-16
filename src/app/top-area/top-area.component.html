@@ -1,7 +1,8 @@
 <md-toolbar color="primary">
 	My Way
 	<span class="nav-fill-remaining"></span>
-	<div *ngIf="user"> {{user.login}}</div>
 	<a *ngIf="!user" md-button [routerLink]="['/login']">LogIn</a>
-	<a *ngIf="user"md-button (click)="onLogout()">LogOut</a>
+	<div id="avatar" *ngIf="user" (click)="onLogout()">
+		<img src="http://localhost:8080/avatars/5724ea242e326e5f3a4197c6"/>
+	</div>	
 </md-toolbar>
