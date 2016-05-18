@@ -1,6 +1,6 @@
 <div class="loginPage">
   <div class="title">MyWay</div>
-  <div class="card md-whiteframe-6dp">
+  <md-card class="card md-whiteframe-6dp">
     <form class="loginForm" (ngSubmit)="authenticate()" [ngFormModel]="userForm">
 
       <md-input placeholder="Login" class="inputField" ngControl="username"></md-input>
@@ -13,5 +13,5 @@
       
       <button md-raised-button class="md-primary loginButton" type="submit" [disabled]="!userForm.valid">Login</button>
     </form>
-  </div>
+  </md-card>
 </div>

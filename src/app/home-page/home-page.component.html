@@ -2,6 +2,24 @@
   home-page works!
 </p>
 
-            <input type="file" [ng-file-select]="options" (onUpload)="handleBasicUpload($event)">
-            <span class="percent">{{ basicProgress }}%</span>
-          
+<input type="file" [ng-file-select]="options" (onUpload)="handleBasicUpload($event)">
+<span class="percent">{{ basicProgress }}%</span>
+<md-card>
+  <md-card-subtitle>Subtitle first</md-card-subtitle>
+  <md-card-title>Card with title</md-card-title>
+  <md-card-content>
+ <sebm-google-map [latitude]="lat" [longitude]="lng">
+  <sebm-google-map-marker [latitude]="lat" [longitude]="lng" [label]="'M'">
+       <sebm-google-map-info-window [disableAutoPan]="true">
+         Hi, this is the content of the <strong>info window</strong>
+       </sebm-google-map-info-window>
+     </sebm-google-map-marker>  
+ </sebm-google-map>
+ 
+ 
+  </md-card-content>
+  <md-card-actions>
+    <button md-button>LIKE</button>
+    <button md-button>SHARE</button>
+  </md-card-actions>
+</md-card>

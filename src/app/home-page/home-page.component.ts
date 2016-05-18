@@ -1,12 +1,13 @@
 import { Component, NgZone } from '@angular/core';
 import { NgFileSelect } from '../libs/ng2-uploader/ng2-fileSelect';
+import { ANGULAR2_GOOGLE_MAPS_DIRECTIVES } from 'angular2-google-maps/core';
 
 @Component({
   moduleId: module.id,
   selector: 'app-home-page',
   templateUrl: 'home-page.component.html',
   styleUrls: ['home-page.component.css'],
-  directives: [NgFileSelect],
+  directives: [NgFileSelect, ANGULAR2_GOOGLE_MAPS_DIRECTIVES],
   pipes: []
 })
 
@@ -22,6 +23,9 @@ export class HomePageComponent {
   multipleResp: any[] = [];
   dropProgress: number = 0;
   dropResp: any[] = [];
+
+lat: number = 51.678418;
+  lng: number = 7.809007;
 
   constructor() {
     this.zone = new NgZone({ enableLongStackTrace: false });

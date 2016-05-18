@@ -14,6 +14,7 @@ module.exports = function(defaults) {
       '@angular/**/*.js',
       '@angular2-material/**/*.js',
       '@angular2-material/**/*.css',
+      'angular2-google-maps/bundles/*.js'
     ]
   });
 };
