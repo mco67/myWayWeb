@@ -8,6 +8,9 @@ const map: any = {
   '@angular2-material/button' : 'vendor/@angular2-material/button/button.js',
   '@angular2-material/card' : 'vendor/@angular2-material/card/card.js',
   '@angular2-material/input' : 'vendor/@angular2-material/input/input.js',
+  '@angular2-material/grid-list' : 'vendor/@angular2-material/grid-list/grid-list.js',
+  'vendor/@angular2-material/grid-list/grid-tile' : 'vendor/@angular2-material/grid-list/grid-tile.js',
+
   '@angular2-material/core/rtl' : 'vendor/@angular2-material/core/rtl/dir.js',
   '@angular2-material/core/rtl/dir' : 'vendor/@angular2-material/core/rtl/dir.js',
   '@angular2-material/core/annotations/field-value' : 'vendor/@angular2-material/core/annotations/field-value.js',
@@ -18,6 +21,7 @@ const map: any = {
 /** User packages configuration. */
 const packages: any = {
   '@angular2-material': { format: 'cjs', defaultExtension: 'js' },
+  '@angular2-material/grid-tile': { defaultExtension: 'js' },
   'angular2-google-maps': { defaultExtension: 'js' },
 };
 
@@ -44,6 +48,8 @@ const barrels: string[] = [
   'app/login-page',
   'app/home-page',
   'app/top-area',
+  'app/admin-page',
+  'app/main-page',
   /** @cli-barrel */
 ];
 

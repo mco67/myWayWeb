@@ -34,10 +34,8 @@ export class UserService {
         // Case 2 : Try to authenticate
         else {
             // Fill headers for basic Authentication         
-            var headers = new Headers();
-            headers.append('Authorization', 'Bearer ' + this.token);
-            headers.append('Accept', 'application/json');
-
+            let headers = this.getAuthenticationHeaders();
+           
             // Call Rest WebService
             this.http.get(`${this.configService.baseURL}/api/v1.0/user/user`, { headers: headers }).map(res => res.json())
                 .subscribe(
@@ -93,6 +91,13 @@ export class UserService {
         console.log(`[AUTH_SERVICE] logout ${this.user}`);
         this._user.next(null);
         localStorage.removeItem("token");
+    }
+    
+    public getAuthenticationHeaders() {
+        let headers = new Headers();
+        headers.append('Authorization', 'Bearer ' + this.token);
+        headers.append('Accept', 'application/json');
+        return headers;
     }
 
 }

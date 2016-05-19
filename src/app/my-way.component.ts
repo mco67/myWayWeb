@@ -3,6 +3,9 @@ import { Route, Routes, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/rou
 import { TopAreaComponent } from './top-area/top-area.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { MainPageComponent } from './main-page/main-page.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
+
 import { UserService } from './services/userService';
 
 
@@ -16,8 +19,9 @@ import { UserService } from './services/userService';
 
 
 @Routes([
-	new Route({ path: '/', component: HomePageComponent }),
-	new Route({ path: '/login', component: LoginPageComponent })
+	new Route({ path: '/', component: MainPageComponent }),
+	new Route({ path: '/login', component: LoginPageComponent }),
+	new Route({ path: '/admin', component: AdminPageComponent })
 ])
 
 export class MyWayAppComponent {

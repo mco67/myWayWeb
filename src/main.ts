@@ -13,6 +13,7 @@ import { MdCard } from '@angular2-material/card';
 
 import { ConfigService } from './app/services/configService';
 import { UserService } from './app/services/userService';
+import { ProviderService } from './app/services/providerService';
 import { UploadService } from './app/services/uploadService';
 
 import 'rxjs/add/operator/map';
@@ -29,6 +30,7 @@ bootstrap(MyWayAppComponent, [
   HTTP_PROVIDERS,
   ANGULAR2_GOOGLE_MAPS_PROVIDERS,
   Renderer,
+  
   provide(PLATFORM_DIRECTIVES, { useValue: ROUTER_DIRECTIVES, multi: true }),
   provide(PLATFORM_DIRECTIVES, { useValue: MD_SIDENAV_DIRECTIVES, multi: true }),
   provide(PLATFORM_DIRECTIVES, { useValue: MdToolbar, multi: true }),
@@ -38,6 +40,7 @@ bootstrap(MyWayAppComponent, [
 
   ConfigService,
   UserService,
+  ProviderService,
   UploadService
 
 ]);
