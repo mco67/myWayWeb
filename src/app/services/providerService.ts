@@ -2,6 +2,9 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { ConfigService } from '../services/configService';
 import { UserService } from '../services/userService';
+import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from "rxjs/Rx";
+import { Provider } from '../models/Provider';
 import 'rxjs/operator/map';
 
 
@@ -14,15 +17,16 @@ export class ProviderService {
         private http: Http) {
     }
 
-    public getProviders() {
+    public getProviders() : Observable<Provider> {
+       
         let headers = this.userService.getAuthenticationHeaders();
-        this.http.get(`${this.configService.baseURL}/api/v1.0/admin/providers`, { headers: headers }).map(res => res.json())
-            .subscribe(
-            result => {
-                console.log(result);
-            },
-            err => {
-                console.warn(`[PROVIDER_SERVICE] initialize failure : ${err}`);
-            });
+        return this.http.get(`${this.configService.baseURL}/api/v1.0/admin/providers`, { headers: headers })
+            .map(res => {
+                return res.json().data;
+            })
+            /*.map(data => {
+                console.log(data);
+                return new Provider(data['id'], data['name'], data['description']);
+            });*/
     }
 }

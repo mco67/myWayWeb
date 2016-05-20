@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ProviderService } from '../services/providerService';
-import { User } from '../models/User';
+import { Provider } from '../models/Provider';
 
 @Component({
   moduleId: module.id,
@@ -11,8 +11,14 @@ import { User } from '../models/User';
 
 export class AdminPageComponent {
 
-  constructor(private providerService : ProviderService) {
-    this.providerService.getProviders();
+  constructor(private providerService: ProviderService) {
+    this.providerService.getProviders().subscribe(
+      provider => {
+        console.log('p' + provider);
+      },
+      err => {
+        console.log('errrororooror');
+      });
   }
 
 }
