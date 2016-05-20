@@ -13,8 +13,8 @@ export class AdminPageComponent {
 
   constructor(private providerService: ProviderService) {
     this.providerService.getProviders().subscribe(
-      provider => {
-        console.log('p' + provider);
+      providers => {
+        console.log(providers);
       },
       err => {
         console.log('errrororooror');

@@ -22,11 +22,9 @@ export class ProviderService {
         let headers = this.userService.getAuthenticationHeaders();
         return this.http.get(`${this.configService.baseURL}/api/v1.0/admin/providers`, { headers: headers })
             .map(res => {
-                return res.json().data;
-            })
-            /*.map(data => {
-                console.log(data);
-                return new Provider(data['id'], data['name'], data['description']);
-            });*/
+                return res.json().data.map(data => {
+                    return new Provider(data['id'], data['name'], data['description']);
+                });
+            });
     }
 }
