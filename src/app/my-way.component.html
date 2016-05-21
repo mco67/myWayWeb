@@ -1,13 +1,4 @@
-<md-sidenav-layout class="myWay" fullscreen>
-  <md-sidenav #start>
-    <md-nav-list>
-
-    </md-nav-list>
-  </md-sidenav>
-  <div>
-   <app-top-area></app-top-area>
-    <router-outlet></router-outlet>
-  </div>
-</md-sidenav-layout>
-
-
+<div class="myWay">
+	<app-top-area></app-top-area>
+	<router-outlet style="height:100%"></router-outlet>
+</div>

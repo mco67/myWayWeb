@@ -50,6 +50,7 @@ const barrels: string[] = [
   'app/top-area',
   'app/admin-page',
   'app/main-page',
+  'app/create-provider',
   /** @cli-barrel */
 ];
 

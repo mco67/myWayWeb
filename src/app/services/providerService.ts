@@ -9,6 +9,7 @@ import 'rxjs/operator/map';
 
 
 @Injectable()
+
 export class ProviderService {
 
     constructor(
@@ -17,14 +18,18 @@ export class ProviderService {
         private http: Http) {
     }
 
-    public getProviders() : Observable<Provider> {
+    public getProviders() : Observable<Array<Provider>> {
        
         let headers = this.userService.getAuthenticationHeaders();
         return this.http.get(`${this.configService.baseURL}/api/v1.0/admin/providers`, { headers: headers })
             .map(res => {
                 return res.json().data.map(data => {
-                    return new Provider(data['id'], data['name'], data['description']);
+                    return Provider.create(data['name'], data['description'], data['id']);
                 });
             });
+    }
+    
+    public createProvider(provider : Provider) {
+        alert("Create provider");
     }
 }

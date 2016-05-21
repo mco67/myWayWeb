@@ -1,0 +1,19 @@
+<form (ngSubmit)="createProvider()" [ngFormModel]="providerForm">
+	<md-card class="card md-whiteframe-6dp">
+		<md-card-title>Create a new provider</md-card-title>
+		<md-card-content class="createProviderInputs">
+
+			<md-input placeholder="Provider name" ngControl="providerName"></md-input>
+			<div class="inputFieldErrorMessage" *ngIf="providerName.dirty && providerName.hasError('required')">Provider name is required</div>
+			<div class="inputFieldErrorMessage" *ngIf="providerNameErrorMessage">{{providerNameErrorMessage}}</div>
+
+			<md-input placeholder="Provider description" ngControl="providerDesc"></md-input>
+			<div class="inputFieldErrorMessage" *ngIf="providerDesc.dirty && providerDesc.hasError('required')">Provider description is required</div>
+			<div class="inputFieldErrorMessage" *ngIf="providerDescErrorMessage">{{passwordErrorMessage}}</div>
+
+		</md-card-content>
+		<md-card-actions align="end">
+			<button md-raised-button class="md-primary" type="submit" [disabled]="!providerForm.valid">Create</button>
+		</md-card-actions>
+	</md-card>
+</form>

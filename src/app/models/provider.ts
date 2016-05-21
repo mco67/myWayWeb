@@ -4,13 +4,19 @@ export class Provider {
     public name: string;
     public description: string;
 
-    constructor(id: string, name: string, desc: string) {
-        this.id = id;
-        this.name = name;
-        this.description = desc;
+    public static create(name: string, description: string, id?:string): Provider {
+        let provider = new Provider();
+        provider.id = id;
+        provider.name = name;
+        provider.description = description;
+        return provider;
+    }
+
+    constructor() {
+       
     }
     
-    toString(): string {
+    public toString(): string {
         return `${this.id} ${this.name}`;
     }
 
