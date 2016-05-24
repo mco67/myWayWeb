@@ -2,7 +2,7 @@
 <a md-button (click)="showCreationCard()">Create Provider</a>
 	
 <div *ngIf="creationCardVisible" class="blur">
-	<app-create-provider></app-create-provider>
+	<app-create-provider (onCancel)="hideCreationCard()"></app-create-provider>
 </div>
 
 
@@ -24,3 +24,12 @@
 		</tbody>
 	</table>
 </div>
+
+
+      <md-grid-list cols="4" [rowHeight]="basicRowHeight">
+        <md-grid-tile> One </md-grid-tile>
+        <md-grid-tile> Two </md-grid-tile>
+        <md-grid-tile> Three </md-grid-tile>
+        <md-grid-tile> Four </md-grid-tile>
+      </md-grid-list>
+   

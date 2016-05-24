@@ -18,8 +18,7 @@ export class ProviderService {
         private http: Http) {
     }
 
-    public getProviders() : Observable<Array<Provider>> {
-       
+    public getProviders(): Observable<Array<Provider>> {
         let headers = this.userService.getAuthenticationHeaders();
         return this.http.get(`${this.configService.baseURL}/api/v1.0/admin/providers`, { headers: headers })
             .map(res => {
@@ -28,8 +27,12 @@ export class ProviderService {
                 });
             });
     }
-    
-    public createProvider(provider : Provider) {
-        alert("Create provider");
+
+    public createProvider(provider: Provider) {
+        let headers = this.userService.getAuthenticationHeaders();
+        return this.http.post(
+            `${this.configService.baseURL}/api/v1.0/admin/providers`,
+            JSON.stringify(provider),
+            { headers: headers });
     }
 }

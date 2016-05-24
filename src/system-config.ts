@@ -3,27 +3,36 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
-  '@angular2-material/sidenav' : 'vendor/@angular2-material/sidenav/sidenav.js',
-  '@angular2-material/toolbar' : 'vendor/@angular2-material/toolbar/toolbar.js',
-  '@angular2-material/button' : 'vendor/@angular2-material/button/button.js',
-  '@angular2-material/card' : 'vendor/@angular2-material/card/card.js',
-  '@angular2-material/input' : 'vendor/@angular2-material/input/input.js',
-  '@angular2-material/grid-list' : 'vendor/@angular2-material/grid-list/grid-list.js',
-  'vendor/@angular2-material/grid-list/grid-tile' : 'vendor/@angular2-material/grid-list/grid-tile.js',
-
-  '@angular2-material/core/rtl' : 'vendor/@angular2-material/core/rtl/dir.js',
-  '@angular2-material/core/rtl/dir' : 'vendor/@angular2-material/core/rtl/dir.js',
-  '@angular2-material/core/annotations/field-value' : 'vendor/@angular2-material/core/annotations/field-value.js',
-  '@angular2-material/core/async' : 'vendor/@angular2-material/core/async/promise-completer.js',
-  '@angular2-material/core/async/promise-completer' : 'vendor/@angular2-material/core/async/promise-completer.js',
+  '@angular2-material': 'vendor/@angular2-material'
 };
 
-/** User packages configuration. */
-const packages: any = {
-  '@angular2-material': { format: 'cjs', defaultExtension: 'js' },
-  '@angular2-material/grid-tile': { defaultExtension: 'js' },
-  'angular2-google-maps': { defaultExtension: 'js' },
-};
+const materialPackages:string[] = [
+  'core',
+  'toolbar',
+  'icon',
+  'button',
+  'sidenav',
+  'list',
+  'card',
+  'input',
+  'radio',
+  'checkbox',
+  'grid-list'
+];
+
+const packages:any = createCustomConfig(materialPackages);
+
+function createCustomConfig(packages: string[]): any {
+  return packages.reduce((packageConfig: any, packageName: string) => {
+    packageConfig[`@angular2-material/${packageName}`] = {
+      format: 'cjs',
+      defaultExtension: 'js',
+      main: packageName
+    };
+    return packageConfig;
+  }, {'angular2-google-maps': { defaultExtension: 'js' }});
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /***********************************************************************************************

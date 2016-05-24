@@ -9,7 +9,8 @@ import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav';
 import { MdToolbar } from '@angular2-material/toolbar';
 import { MdButton } from '@angular2-material/button';
 import { MdInput } from '@angular2-material/input';
-import { MdCard } from '@angular2-material/card';
+import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
+import { MD_GRID_LIST_DIRECTIVES } from '@angular2-material/grid-list';
 
 import { ConfigService } from './app/services/configService';
 import { UserService } from './app/services/userService';
@@ -36,7 +37,8 @@ bootstrap(MyWayAppComponent, [
   provide(PLATFORM_DIRECTIVES, { useValue: MdToolbar, multi: true }),
   provide(PLATFORM_DIRECTIVES, { useValue: MdButton, multi: true }),
   provide(PLATFORM_DIRECTIVES, { useValue: MdInput, multi: true }),
-  provide(PLATFORM_DIRECTIVES, { useValue: MdCard, multi: true }),
+  provide(PLATFORM_DIRECTIVES, { useValue: MD_CARD_DIRECTIVES, multi: true }),
+  provide(PLATFORM_DIRECTIVES, { useValue: MD_GRID_LIST_DIRECTIVES, multi: true }),
 
   ConfigService,
   UserService,
